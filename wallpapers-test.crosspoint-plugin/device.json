@@ -1,0 +1,214 @@
+{
+  "title": "TEMP · Wallpaper UI Test",
+  "description": "Disposable firmware test using the live Wallpaper Downloader catalog.",
+  "config": {
+    "file": "config.json"
+  },
+  "ui": {
+    "default_tab": "lists",
+    "tabs": [
+      {
+        "id": "lists",
+        "title": "Wallpapers",
+        "type": "browse"
+      },
+      {
+        "id": "settings",
+        "title": "Settings",
+        "type": "settings"
+      }
+    ]
+  },
+  "settings": [
+    {
+      "key": "layout",
+      "title": "Layout",
+      "type": "choice",
+      "default": "grid",
+      "options": [
+        {
+          "title": "Grid",
+          "value": "grid"
+        },
+        {
+          "title": "List",
+          "value": "list"
+        }
+      ]
+    },
+    {
+      "key": "grid_columns",
+      "title": "Grid columns",
+      "type": "choice",
+      "default": "2",
+      "options": [
+        {
+          "title": "1 column",
+          "value": "1"
+        },
+        {
+          "title": "2 columns",
+          "value": "2"
+        },
+        {
+          "title": "3 columns",
+          "value": "3"
+        },
+        {
+          "title": "4 columns",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "key": "grid_rows",
+      "title": "Grid rows",
+      "type": "choice",
+      "default": "2",
+      "options": [
+        {
+          "title": "1 row",
+          "value": "1"
+        },
+        {
+          "title": "2 rows",
+          "value": "2"
+        },
+        {
+          "title": "3 rows",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "key": "list_thumbnails",
+      "title": "Show thumbnails in list view",
+      "type": "toggle",
+      "default": true
+    },
+    {
+      "key": "allow_image_preview",
+      "title": "Allow Image Preview",
+      "type": "toggle",
+      "default": true
+    },
+    {
+      "key": "selection_style",
+      "title": "Row highlight",
+      "type": "choice",
+      "default": "light",
+      "options": [
+        {
+          "title": "Light",
+          "value": "light"
+        },
+        {
+          "title": "Theme",
+          "value": "theme"
+        },
+        {
+          "title": "Outline",
+          "value": "outline"
+        },
+        {
+          "title": "Dark",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "key": "cache_refresh",
+      "title": "Refresh cache",
+      "type": "choice",
+      "default": "7d",
+      "options": [
+        {
+          "title": "Always",
+          "value": "always"
+        },
+        {
+          "title": "3 days",
+          "value": "3d"
+        },
+        {
+          "title": "7 days",
+          "value": "7d"
+        },
+        {
+          "title": "14 days",
+          "value": "14d"
+        }
+      ]
+    },
+    {
+      "key": "cache_limit_mb",
+      "title": "Cache storage",
+      "type": "choice",
+      "default": "32",
+      "options": [
+        {
+          "title": "8 MB",
+          "value": "8"
+        },
+        {
+          "title": "16 MB",
+          "value": "16"
+        },
+        {
+          "title": "32 MB",
+          "value": "32"
+        },
+        {
+          "title": "64 MB",
+          "value": "64"
+        },
+        {
+          "title": "128 MB",
+          "value": "128"
+        }
+      ]
+    }
+  ],
+  "browse": {
+    "format": "json",
+    "url": "https://raw.githubusercontent.com/jadehawk/wallpapers.crosspoint-plugin/main/catalogs/latest/{page}.json",
+    "method": "GET",
+    "items": "items",
+    "fields": {
+      "title": "title",
+      "author": "author",
+      "id": "id",
+      "url": "url",
+      "thumbnail": "thumbnail"
+    },
+    "view": "{cfg.layout}",
+    "grid_columns": "{cfg.grid_columns}",
+    "grid_rows": "{cfg.grid_rows}",
+    "list_thumbnail": "{cfg.list_thumbnails}",
+    "selection_style": "{cfg.selection_style}",
+    "image": {
+      "url": "{thumbnail}",
+      "format": "bmp",
+      "radius": 6
+    },
+    "grid_page_size": "16",
+    "list_page_size": "16",
+    "lists_url": "https://raw.githubusercontent.com/jadehawk/wallpapers.crosspoint-plugin/main/catalogs/index.json"
+  },
+  "download": {
+    "url": "{url}",
+    "dest_dir": "/.sleep",
+    "filename": "{id}.bmp",
+    "preview_on_select": "{cfg.allow_image_preview}"
+  },
+  "author": "Jadehawk",
+  "version": "0.1.0",
+  "cache": {
+    "enabled": true,
+    "refresh": "{cfg.cache_refresh}",
+    "limit_mb": "{cfg.cache_limit_mb}",
+    "seed": {
+      "url": "https://github.com/jadehawk/wallpapers.crosspoint-plugin/releases/download/cache-seed/wallpaper-cache-seed.zip"
+    }
+  }
+}

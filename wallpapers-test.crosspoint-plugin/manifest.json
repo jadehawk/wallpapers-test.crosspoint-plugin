@@ -1,0 +1,22 @@
+{
+  "name": "wallpapers-test",
+  "title": "TEMP · Wallpaper Capability Test",
+  "description": "Temporary wallpaper catalog plugin used to validate firmware capability filtering before wallpaper catalog features are upstreamed.",
+  "author": "Jadehawk",
+  "version": "0.1.0",
+  "compatibility": {
+    "firmware_family": [
+      "crosspoint"
+    ],
+    "requires": [
+      "catalog.images",
+      "catalog.cache"
+    ]
+  },
+  "files": [
+    "manifest.json",
+    "device.json",
+    "config.json",
+    "README.md"
+  ]
+}

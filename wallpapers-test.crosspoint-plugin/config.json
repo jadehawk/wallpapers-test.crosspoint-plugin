@@ -1,0 +1,10 @@
+{
+  "layout": "grid",
+  "grid_columns": "2",
+  "grid_rows": "2",
+  "list_thumbnails": true,
+  "allow_image_preview": true,
+  "selection_style": "light",
+  "cache_refresh": "7d",
+  "cache_limit_mb": "32"
+}
